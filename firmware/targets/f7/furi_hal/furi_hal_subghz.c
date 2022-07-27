@@ -309,6 +309,7 @@ uint32_t furi_hal_subghz_set_frequency_and_path(uint32_t value) {
 }
 
 bool furi_hal_subghz_is_tx_allowed(uint32_t value) {
+    UNUSED(value);
     // Release the kraken!
     return true;
 }
