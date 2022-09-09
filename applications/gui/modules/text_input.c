@@ -131,7 +131,9 @@ static bool char_is_lowercase(char letter) {
 }
 
 static char char_to_uppercase(const char letter) {
-    if(isalpha(letter)) {
+    if(letter == '_') {
+        return 0x20;
+    } else if(isalpha(letter)) {
         return (letter - 0x20);
     } else {
         return letter;
@@ -461,8 +463,6 @@ void text_input_free(TextInput* text_input) {
 
     // Send stop command
     furi_timer_stop(text_input->timer);
-    // Wait till timer stop
-    while(furi_timer_is_running(text_input->timer)) furi_delay_tick(1);
     // Release allocated memory
     furi_timer_free(text_input->timer);
 
