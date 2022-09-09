@@ -107,6 +107,7 @@ const char* furi_hal_region_get_name() {
 }
 
 bool furi_hal_region_is_frequency_allowed(uint32_t frequency) {
+    UNUSED(frequency);
     // Release the kraken!
     return true;
 }
